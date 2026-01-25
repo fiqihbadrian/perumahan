@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Perumahan Bro
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application, which will be used when the
