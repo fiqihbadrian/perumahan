@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Alamat</h3>
-                        <p class="text-gray-700">Jl. Perumahan Asri No. 123<br/>Jakarta Selatan, DKI Jakarta 12345</p>
+                        <p class="text-gray-700">{{ config('site.contact.address.street') }}<br/>{{ config('site.contact.address.city') }}, {{ config('site.contact.address.province') }} {{ config('site.contact.address.postal_code') }}</p>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Telepon</h3>
-                        <p class="text-gray-700">+62 21 1234 5678<br/>+62 812 3456 7890</p>
+                        <p class="text-gray-700">{{ config('site.contact.phone.0') }}<br/>{{ config('site.contact.phone.1') }}</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-                        <p class="text-gray-700">info@perumahanasri.com<br/>admin@perumahanasri.com</p>
+                        <p class="text-gray-700">{{ config('site.contact.email.0') }}<br/>{{ config('site.contact.email.1') }}</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Jam Operasional</h3>
-                        <p class="text-gray-700">Senin - Jumat: 08.00 - 17.00<br/>Sabtu: 08.00 - 12.00</p>
+                        <p class="text-gray-700">{{ config('site.contact.operating_hours.weekdays') }}<br/>{{ config('site.contact.operating_hours.saturday') }}</p>
                     </div>
                 </div>
             </div>

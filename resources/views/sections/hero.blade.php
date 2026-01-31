@@ -8,10 +8,10 @@
     <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
         <div class="animate-fade-in-up">
             <h1 class="text-5xl md:text-7xl font-bold text-blue-900 mb-6">
-                Selamat Datang di<br/>Perumahan Asri
+                Selamat Datang di<br/>{{ config('site.name') }}
             </h1>
             <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Sistem informasi perumahan yang memudahkan Anda mengetahui denah, penghuni, dan status rumah di lingkungan kita
+                {{ config('site.tagline') }}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#denah" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">

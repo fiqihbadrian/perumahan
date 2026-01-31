@@ -3,8 +3,8 @@
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-                <h3 class="text-2xl font-bold mb-4">Perumahan Asri</h3>
-                <p class="text-gray-400">Sistem informasi perumahan yang memudahkan pengelolaan dan komunikasi antar warga.</p>
+                <h3 class="text-2xl font-bold mb-4">{{ config('site.name') }}</h3>
+                <p class="text-gray-400">{{ config('site.description') }}</p>
             </div>
             <div>
                 <h4 class="text-lg font-semibold mb-4">Menu</h4>
@@ -18,31 +18,39 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Kontak</h4>
                 <ul class="space-y-2 text-gray-400">
-                    <li><i class="fas fa-phone mr-2"></i>+62 21 1234 5678</li>
-                    <li><i class="fas fa-envelope mr-2"></i>info@perumahanasri.com</li>
-                    <li><i class="fas fa-map-marker-alt mr-2"></i>Jakarta Selatan</li>
+                    <li><i class="fas fa-phone mr-2"></i>{{ config('site.contact.phone.0') }}</li>
+                    <li><i class="fas fa-envelope mr-2"></i>{{ config('site.contact.email.0') }}</li>
+                    <li><i class="fas fa-map-marker-alt mr-2"></i>{{ config('site.contact.address.city') }}</li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                    @if(config('site.social.facebook'))
+                    <a href="{{ config('site.social.facebook') }}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors" target="_blank" rel="noopener">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+                    @endif
+                    @if(config('site.social.twitter'))
+                    <a href="{{ config('site.social.twitter') }}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors" target="_blank" rel="noopener">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                    @endif
+                    @if(config('site.social.instagram'))
+                    <a href="{{ config('site.social.instagram') }}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors" target="_blank" rel="noopener">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                    @endif
+                    @if(config('site.social.whatsapp'))
+                    <a href="{{ config('site.social.whatsapp') }}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i>
                     </a>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 Fiqih Badrian.</p>
+            <p>&copy; {{ config('site.developer.year') }} {{ config('site.developer.name') }}. All rights reserved.</p>
         </div>
     </div>
 </footer>

@@ -51,8 +51,8 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-6">Lokasi Perumahan</h3>
                 <div class="w-full h-96 rounded-lg overflow-hidden shadow-inner">
                     <img
-                        src="https://raw.githubusercontent.com/fiqihbadrian/acc-jambu-2/refs/heads/main/peta.png"
-                        alt="Peta Lokasi Perumahan"
+                        src="{{ config('site.assets.map') }}"
+                        alt="Peta Lokasi {{ config('site.name') }}"
                         class="w-full h-full object-contain"
                     /> 
                 </div>         

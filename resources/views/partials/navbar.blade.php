@@ -7,7 +7,7 @@
     >
         <!-- LOGO -->
         <a href="/" class="font-bold tracking-wide text-blue-900 text-xl md:text-2xl">
-            Perumahan Asri
+            {{ config('site.name') }}
         </a>
 
         <!-- DESKTOP MENU -->
