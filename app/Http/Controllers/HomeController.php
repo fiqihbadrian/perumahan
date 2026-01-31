@@ -67,4 +67,21 @@ class HomeController extends Controller
             'availableBloks'
         ));
     }
+    
+    public function berita(Request $request)
+    {
+        $search = $request->get('search');
+        
+        $beritas = Berita::published()
+            ->when($search, function($query, $search) {
+                return $query->where(function($q) use ($search) {
+                    $q->where('title', 'like', "%{$search}%")
+                      ->orWhere('content', 'like', "%{$search}%");
+                });
+            })
+            ->latest('published_at')
+            ->paginate(9);
+        
+        return view('berita', compact('beritas', 'search'));
+    }
 }

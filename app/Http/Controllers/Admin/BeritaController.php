@@ -25,6 +25,7 @@ class BeritaController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'excerpt' => 'required|string|max:500',
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_published' => 'boolean',
@@ -52,6 +53,7 @@ class BeritaController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'excerpt' => 'required|string|max:500',
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_published' => 'boolean',

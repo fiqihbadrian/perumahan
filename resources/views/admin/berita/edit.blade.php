@@ -24,10 +24,24 @@
         </div>
 
         <div class="mb-6">
-            <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Konten *</label>
+            <label for="excerpt" class="block text-sm font-medium text-gray-700 mb-2">Ringkasan / Deskripsi Singkat *</label>
+            <textarea name="excerpt" id="excerpt" rows="3" 
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('excerpt') border-red-500 @enderror" 
+                      placeholder="Tulis ringkasan berita untuk ditampilkan di card (max 500 karakter)"
+                      required>{{ old('excerpt', $berita->excerpt) }}</textarea>
+            <p class="text-gray-500 text-sm mt-1">Ringkasan ini akan ditampilkan di card berita</p>
+            @error('excerpt')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
+            <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Isi Konten Lengkap *</label>
             <textarea name="content" id="content" rows="10" 
                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror" 
+                      placeholder="Tulis isi berita lengkap untuk halaman detail"
                       required>{{ old('content', $berita->content) }}</textarea>
+            <p class="text-gray-500 text-sm mt-1">Konten lengkap akan ditampilkan saat klik 'Baca Selengkapnya'</p>
             @error('content')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror

@@ -39,7 +39,7 @@
                         @endif
                         <div>
                             <div class="font-medium text-gray-900">{{ $berita->title }}</div>
-                            <div class="text-sm text-gray-500">{{ Str::limit($berita->content, 60) }}</div>
+                            <div class="text-sm text-gray-500">{{ $berita->excerpt ?? Str::limit($berita->content, 60) }}</div>
                         </div>
                     </div>
                 </td>

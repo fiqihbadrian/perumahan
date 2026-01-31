@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 
 // Admin Routes (Protected)
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
