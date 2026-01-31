@@ -3,25 +3,25 @@
 @section('title', 'Kelola Rumah')
 
 @section('content')
-<div class="mb-6">
-    <div class="flex justify-between items-center mb-4">
+<div class="mb-4 lg:mb-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 lg:mb-4 gap-3 sm:gap-0">
         <div>
-            <h1 class="text-3xl font-bold text-gray-800">Kelola Rumah</h1>
-            <p class="text-gray-600">Manage data rumah dan penghuni</p>
+            <h1 class="text-2xl lg:text-3xl font-bold text-gray-800">Kelola Rumah</h1>
+            <p class="text-sm lg:text-base text-gray-600">Manage data rumah dan penghuni</p>
         </div>
         <a href="{{ route('admin.rumah.create') }}" 
-           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">
+           class="w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2.5 lg:py-3 rounded-lg transition text-sm lg:text-base font-medium">
             <i class="fas fa-plus mr-2"></i>Tambah Rumah
         </a>
     </div>
 
     <!-- Filter Section -->
-    <div class="bg-white rounded-lg shadow p-4 mb-4">
-        <form method="GET" action="{{ route('admin.rumah.index') }}" class="flex gap-4 items-end">
+    <div class="bg-white rounded-lg shadow p-3 lg:p-4 mb-3 lg:mb-4">
+        <form method="GET" action="{{ route('admin.rumah.index') }}" class="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-end">
             <div class="flex-1">
                 <label for="blok" class="block text-sm font-medium text-gray-700 mb-2">Filter Blok</label>
                 <select name="blok" id="blok" 
-                        class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                        class="w-full px-3 py-2 text-sm lg:text-base rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                     <option value="">Semua Blok</option>
                     @foreach($bloks as $blok)
                         <option value="{{ $blok }}" {{ request('blok') == $blok ? 'selected' : '' }}>
@@ -34,20 +34,20 @@
             <div class="flex-1">
                 <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Filter Status</label>
                 <select name="status" id="status" 
-                        class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                        class="w-full px-3 py-2 text-sm lg:text-base rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                     <option value="">Semua Status</option>
                     <option value="terisi" {{ request('status') == 'terisi' ? 'selected' : '' }}>Terisi</option>
                     <option value="kosong" {{ request('status') == 'kosong' ? 'selected' : '' }}>Kosong</option>
                 </select>
             </div>
             
-            <div class="flex gap-2">
+            <div class="flex flex-col sm:flex-row gap-2">
                 <button type="submit" 
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition">
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2.5 rounded-lg transition text-sm lg:text-base font-medium">
                     <i class="fas fa-filter mr-2"></i>Filter
                 </button>
                 <a href="{{ route('admin.rumah.index') }}" 
-                   class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-2.5 rounded-lg transition">
+                   class="text-center bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 lg:px-6 py-2.5 rounded-lg transition text-sm lg:text-base font-medium">
                     <i class="fas fa-redo mr-2"></i>Reset
                 </a>
             </div>
@@ -56,13 +56,15 @@
 </div>
 
 @if(session('success'))
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+    <div class="bg-green-100 border border-green-400 text-green-700 px-3 lg:px-4 py-3 rounded mb-3 lg:mb-4 text-sm lg:text-base">
         {{ session('success') }}
     </div>
 @endif
 
+<!-- Wrapper dengan horizontal scroll untuk mobile -->
 <div class="bg-white rounded-lg shadow overflow-hidden">
-    <table class="min-w-full divide-y divide-gray-200">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Blok</th>
@@ -157,10 +159,16 @@
             @endforelse
         </tbody>
     </table>
+    </div>
 </div>
 
+<!-- Hint untuk scroll di mobile -->
+<p class="text-xs text-gray-500 mt-2 md:hidden text-center">
+    <i class="fas fa-hand-pointer"></i> Geser tabel ke samping untuk melihat aksi
+</p>
+
 @if($rumahs->hasPages())
-<div class="mt-6">
+<div class="mt-4 lg:mt-6">
     {{ $rumahs->appends(request()->query())->links() }}
 </div>
 @endif
